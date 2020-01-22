@@ -13,4 +13,4 @@ RUN yarn
 # Copy project folder in the container
 COPY . .
 
-CMD ["./node_modules/mocha/bin/mocha", "--colors", "--exit"]
+CMD ["./node_modules/nyc/bin/nyc.js", "./node_modules/mocha/bin/_mocha", "--colors", "--exit"]
