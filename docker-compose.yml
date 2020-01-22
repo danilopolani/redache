@@ -1,0 +1,14 @@
+version: '3'
+services:
+  app:
+    build: .
+    container_name: redache_app
+    links:
+      - redis
+
+
+  redis:
+    image: redis
+    container_name: redache_redis
+    ports:
+      - 6379
