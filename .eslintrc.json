@@ -5,7 +5,11 @@
         "mocha": true
     },
     "extends": [
-        "standard"
+        "standard",
+        "plugin:chai-friendly/recommended"
+    ],
+    "plugins": [
+        "chai-friendly"
     ],
     "globals": {
         "Atomics": "readonly",

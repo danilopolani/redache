@@ -96,7 +96,7 @@ module.exports = class Cache {
       cacheExpiration = moment().add(unitAmount, unitSymbol).diff(today, 'seconds')
     } else if (ttl instanceof Date) {
       // Date() object as param
-      cacheExpiration = moment.utc(ttl).diff(today, 'seconds')
+      cacheExpiration = moment(ttl).diff(today, 'seconds')
     } else if (ttl instanceof moment) {
       // moment() instance as param
       cacheExpiration = ttl.diff(today, 'seconds')
