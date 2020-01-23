@@ -2,7 +2,7 @@
 
 [![npm version](https://badge.fury.io/js/redache.svg)](https://badge.fury.io/js/redache)
 [![Build Status](https://travis-ci.org/danilopolani/redache.svg?branch=master)](https://travis-ci.org/danilopolani/redache)
-[![Coverage Status](https://coveralls.io/repos/github/danilopolani/redache/badge.svg?branch=master)](https://coveralls.io/github/danilopolani/redache?branch=master)
+[![codecov](https://codecov.io/gh/danilopolani/redache/branch/master/graph/badge.svg)](https://codecov.io/gh/danilopolani/redache)
 
 Easy redis cache library.
 
