@@ -6,9 +6,8 @@
   "author": "Danilo Polani <danilo.polani@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "mkdir": "mkdir .nyc_output coverage",
-    "test": "yarn run mkdir && docker-compose up --build --abort-on-container-exit",
-    "coverage": "yarn run test && npx codecov"
+    "test": "docker-compose up --build --abort-on-container-exit",
+    "coverage": "npx codecov"
   },
   "dependencies": {
     "moment": "^2.24.0",
