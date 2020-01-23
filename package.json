@@ -6,7 +6,8 @@
   "author": "Danilo Polani <danilo.polani@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "test": "docker-compose up --build --abort-on-container-exit"
+    "test": "docker-compose up --build --abort-on-container-exit",
+    "coverage": "nyc report --reporter=text-lcov | coveralls"
   },
   "dependencies": {
     "moment": "^2.24.0",
@@ -15,6 +16,7 @@
   "devDependencies": {
     "chai": "^4.2.0",
     "chai-as-promised": "^7.1.1",
+    "coveralls": "^3.0.9",
     "eslint": "^6.8.0",
     "eslint-config-standard": "^14.1.0",
     "eslint-plugin-chai-friendly": "^0.5.0",
