@@ -7,7 +7,7 @@
   "license": "MIT",
   "scripts": {
     "test": "docker-compose up --build --abort-on-container-exit",
-    "coverage": "nyc report --reporter=text-lcov | coveralls"
+    "coverage": "nyc report --reporter=text-lcov > coverage.lcov | coveralls"
   },
   "dependencies": {
     "moment": "^2.24.0",
