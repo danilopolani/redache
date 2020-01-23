@@ -6,4 +6,4 @@ cache:
     - 'node_modules'
 services:
   - docker
-after_success: mkdir .nyc_output && yarn coverage
+after_success: mkdir .nyc_output coverage && yarn coverage
