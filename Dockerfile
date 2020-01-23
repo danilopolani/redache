@@ -13,4 +13,4 @@ RUN yarn
 # Copy project folder in the container
 COPY . .
 
-CMD ["npx", "mocha", "--colors", "--exit"]
+CMD ["npx", "nyc", "--reporter=lcov", "mocha", "--colors", "--exit"]

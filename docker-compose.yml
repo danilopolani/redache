@@ -3,9 +3,10 @@ services:
   app:
     build: .
     container_name: redache_app
+    volumes:
+      - .:/app/
     links:
       - redis
-
 
   redis:
     image: redis
