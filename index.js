@@ -9,7 +9,7 @@ const { promisify } = require('util')
  *
  * @property {object} client - Redis client
  */
-module.exports = class Cache {
+module.exports = class Redache {
   /**
    * Initialize a new cache instance.
    *

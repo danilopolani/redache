@@ -1,5 +1,5 @@
 const chai = require('chai')
-const Cache = require('../index')
+const Redache = require('../index')
 const chaiAsPromised = require('chai-as-promised')
 const expect = chai.expect
 
@@ -12,7 +12,7 @@ const config = {
 }
 
 // Init cache instance
-const cacheInstance = new Cache(config)
+const cacheInstance = new Redache(config)
 
 describe('#forget()', () => {
   it('should delete the given key', async () => {

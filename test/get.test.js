@@ -1,6 +1,6 @@
 const chai = require('chai')
 const redis = require('redis')
-const Cache = require('../index')
+const Redache = require('../index')
 const { promisify } = require('util')
 const chaiAsPromised = require('chai-as-promised')
 const expect = chai.expect
@@ -14,7 +14,7 @@ const config = {
 }
 
 // Init cache instance
-const cacheInstance = new Cache(config)
+const cacheInstance = new Redache(config)
 const redisInstance = redis.createClient(config)
 
 // Promisify redis methods
