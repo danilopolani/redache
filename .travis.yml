@@ -6,3 +6,4 @@ cache:
     - 'node_modules'
 services:
   - docker
+after_success: yarn coverage
