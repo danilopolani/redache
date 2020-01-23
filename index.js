@@ -43,7 +43,7 @@ module.exports = class Cache {
     }
 
     // If no fallback has been provided, return null
-    if (typeof fallback === 'undefined' || fallback === null) {
+    if ((typeof fallback === 'undefined' || fallback === null) || (typeof ttl === 'undefined' || ttl === null)) {
       return null
     }
 
