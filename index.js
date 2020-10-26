@@ -24,6 +24,21 @@ module.exports = class Redache {
     this._redisGet = promisify(this.client.get).bind(this.client)
     this._redisSetex = promisify(this.client.setex).bind(this.client)
     this._redisDel = promisify(this.client.del).bind(this.client)
+    
+    // Set connection status
+    this.isConnected = false
+    this.client.on('error', () => {
+      this.isConnected = false
+    });
+    this.client.on('disconnect', () => {
+      this.isConnected = false
+    });
+    this.client.on('end', () => {
+      this.isConnected = false
+    });
+    this.client.on('connect', () => {
+      this.isConnected = true
+    });
   }
 
   /**
@@ -36,15 +51,20 @@ module.exports = class Redache {
    * @return {any}
    */
   async get (key, fallback, ttl) {
-    // Get item
-    const item = await this._redisGet(key)
-    if (item !== null) {
-      return typeof item === 'string' && this._isJSON(item) ? JSON.parse(item) : item
-    }
+    
+    // Check if client is connected and is able to get value otherwise return fallback
+    if(this.isConnected) {
 
-    // If no fallback has been provided, return null
-    if ((typeof fallback === 'undefined' || fallback === null) || (typeof ttl === 'undefined' || ttl === null)) {
-      return null
+      // Get item
+      const item = await this._redisGet(key)
+      if (item !== null) {
+        return typeof item === 'string' && this._isJSON(item) ? JSON.parse(item) : item
+      }
+
+      // If no fallback has been provided, return null
+      if ((typeof fallback === 'undefined' || fallback === null) || (typeof ttl === 'undefined' || ttl === null)) {
+        return null
+      }
     }
 
     // If fallback is a function, get the value from it
@@ -52,7 +72,7 @@ module.exports = class Redache {
     if (typeof fallback === 'function') {
       fallbackValue = await fallback()
     }
-
+  
     // Set cache
     await this.set(key, fallbackValue, ttl)
 
@@ -76,6 +96,12 @@ module.exports = class Redache {
    * @param {string|Date|moment|number} ttl - Can be a human readable format (like '1 day'), a date, a moment instance or seconds.
    */
   async set (key, value, ttl) {
+    
+    // Check if client is connected and is able to set value 
+    if (!this.isConnected) {
+      return
+    }
+
     let cacheExpiration = 0
     const today = moment()
 

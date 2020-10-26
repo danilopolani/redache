@@ -10,8 +10,8 @@
     "coverage": "npx codecov"
   },
   "dependencies": {
-    "moment": "^2.24.0",
-    "redis": "^2.8.0"
+    "moment": "^2.29.1",
+    "redis": "^3.0.2"
   },
   "devDependencies": {
     "chai": "^4.2.0",
