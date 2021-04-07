@@ -1,6 +1,6 @@
 {
   "name": "redache",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Easy redis cache library",
   "main": "index.js",
   "author": "Danilo Polani <danilo.polani@gmail.com>",
