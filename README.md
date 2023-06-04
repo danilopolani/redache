@@ -4,6 +4,9 @@
 [![Build Status](https://travis-ci.org/danilopolani/redache.svg?branch=master)](https://travis-ci.org/danilopolani/redache)
 [![codecov](https://codecov.io/gh/danilopolani/redache/branch/master/graph/badge.svg)](https://codecov.io/gh/danilopolani/redache)
 
+> ⚠️**DEPRECATED**⚠️  
+> The project is no longer maintained, please consider switching over a better solution like https://github.com/jaredwray/keyv.  
+
 Easy redis cache library.
 
 ----
